@@ -1,0 +1,18 @@
+numpy==2.2.6
+scipy==1.15.3
+matplotlib==3.10.7
+plotly==6.5.0
+pillow==12.0.0
+tqdm==4.67.1
+PyYAML==6.0.2
+requests==2.32.4
+simplejson==4.1.1
+orjson==3.11.8
+
+auraloss==0.4.0
+tensorboard==2.19.0
+
+pytest==9.0.3
+pytest-timeout==2.4.0
+
+tinycudann @ git+https://github.com/NVlabs/tiny-cuda-nn/@d9e5274da3630ff747b67ed6188c838f4ad671ef#subdirectory=bindings/torch
