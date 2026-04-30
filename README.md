@@ -6,14 +6,14 @@
 
 
 ## Contents
-- [NAMS](#NAMS)
+- [NAMS framework](#NAMS framework)
 - [Abstract](#abstract)
 - [Environment setup](#Environment_setup)
 - [Usage](#usage)
 - [Citation](#citation)
 
 
-## NAMS
+## NAMS framework
 ![Figure Description](assets/NAMS_framework.png)
 
 
@@ -54,11 +54,11 @@ python nams_runner.py --config ./config_files/meshrir.yml
 
 ## Visualizations
 
-| Dataset | Trained multipoles | Directivities |
+| Dataset | Multipoles | Directivities |
 |:---:|:---:|:---:|
 | ![Figure Description](assets/Apartment566_dataset.png) | ![Figure Description](assets/Apartment566_multipoles.gif) | ![Figure Description](assets/Apartment566_directivity.gif) |
 
-- Trained multipoles: darker colors indicate higher emitted signal energy from each multipole.
+
 ## Citation
 
 @inproceedings{baek2026neural,
