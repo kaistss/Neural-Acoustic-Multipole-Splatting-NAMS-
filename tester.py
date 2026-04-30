@@ -53,7 +53,7 @@ class Tester():
         if self.dataset_type == 'MeshRIR':
             self.ir_length = 0.1
             self.fs = 24000
-            self.dataset_dir = '/home/geonwoo/dataset/MeshRIR/'
+            self.dataset_dir = '/dataset/meshrir/'
         elif self.dataset_type == 'Treble':
             self.ir_length = 0.1
             self.fs = 24000

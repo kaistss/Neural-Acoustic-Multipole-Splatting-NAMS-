@@ -2,7 +2,7 @@
 ### Path settings
 path:
   dataset_type: MeshRIR
-  dataset_dir: /home/geonwoo/dataset/ICASSP_dataset/MeshRIR/
+  dataset_dir: /dataset/meshrir/
   logdir: logs/meshrir/ 
   
   
