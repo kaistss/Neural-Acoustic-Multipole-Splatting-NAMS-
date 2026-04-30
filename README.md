@@ -56,7 +56,7 @@ python nams_runner.py --config ./config_files/meshrir.yml
 
 | Dataset | Multipoles | Directivities |
 |:---:|:---:|:---:|
-| ![Figure Description](assets/Apartment566_dataset.png) | ![Figure Description](assets/Apartment566_multipoles.gif) | ![Figure Description](assets/Apartment566_directivity.gif) |
+| ![Figure Description](assets/Apartment566_dataset.png) | ![Figure Description](assets/Apartment566_multipoles.gif) | ![Figure Description](assets/Apartment566_directivity_low_quality.gif) |
 
 
 ## Citation
