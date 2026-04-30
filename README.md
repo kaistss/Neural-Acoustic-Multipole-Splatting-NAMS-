@@ -6,14 +6,14 @@
 
 
 ## Contents
-- [NAMS framework](#NAMS framework)
+- [NAMS framework](#NAMS_framework)
 - [Abstract](#abstract)
 - [Environment setup](#Environment_setup)
 - [Usage](#usage)
 - [Citation](#citation)
 
 
-## NAMS framework
+## NAMS_framework
 ![Figure Description](assets/NAMS_framework.png)
 
 
