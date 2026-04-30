@@ -1,0 +1,78 @@
+
+### Path settings
+path:
+  dataset_type: MeshRIR
+  dataset_dir: /home/geonwoo/dataset/ICASSP_dataset/MeshRIR/
+  logdir: logs/meshrir/ 
+  
+  
+### rendering settings 
+render:
+  xyz_min: -40 # multipoels spread [-34, -34, 34] to [34, 34, 34] to generate 100 ms RIR
+  xyz_max:  40
+  dirs_min: -80 # normalize for relative position of multipoles and receivers
+  dirs_max: 80
+  speed: 343
+  fs: 24000
+  ir_length: 0.1 # 0.1 second RIR length
+  prune_threshold: 0.5 # signal energy threshold (global median 50%)
+  init_sphere_radius_interval: 1 # init multipoles, sampling sphere
+  init_sphere_points_per_shell: 32 # init multipoles, #multipoles per shpere
+  xyz_trainable: True # trainable position of multipoles
+
+### training settings
+train:
+  # batch size
+  batch_size: 64  # batch size
+
+  # epochs
+  epochs: 301
+  val_epochs: 5 # validation results every N epochs   1
+  save_epochs: 300 # save checkpoints
+  prune_epochs: 20 # prune multipoles every 20 epochs
+  prune_start_epoch: 100 # start pruning after 100 epochs
+
+  # optimizer
+  lr: 1e-3
+  T_max: 100
+  eta_min: 1e-4
+  weight_decay: 0
+
+  # loss weight 
+  spec_loss_weight: 1
+  amplitude_loss_weight: 0.5
+  angle_loss_weight: 0.5
+  time_loss_weight: 100
+  energy_loss_weight: 5
+  multistft_loss_weight: 1
+
+### model settings  
+model: 
+  signal_output_dim: 72 # 3 ms length
+  sh_output_dim: 1152  
+  sh_mode: 16 # number of channels for SH coefficients
+  sh_coeff_length: 72 # 3 ms length
+
+  leaky_relu: 0.03
+
+  pos_encoding_sigma:
+    otype: Frequency
+    n_frequencies: 10   
+
+  dir_encoding_sig:
+    otype: Frequency
+    n_frequencies: 10   
+
+  signal_network:
+    activation: ReLU
+    n_hidden_layers: 3
+    n_neurons: 512
+    otype: CutlassMLP
+    output_activation: None
+
+  sh_network:
+    activation: ReLU
+    n_hidden_layers: 3
+    n_neurons: 512
+    otype: CutlassMLP
+    output_activation: None
