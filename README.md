@@ -3,17 +3,24 @@
 [[paper](https://ieeexplore.ieee.org/document/11463493)] [[Demo](https://bgw6287.github.io/nams-demo/)]  [[BibTex](#citation)] 
 
 
-![Figure Description](assets/NAMS_framework.png)
+
 
 ## Contents
+- [NAMS](#NAMS)
 - [Abstract](#abstract)
 - [Environment setup](#Environment_setup)
 - [Usage](#usage)
 - [Citation](#citation)
 
+
+## NAMS
+![Figure Description](assets/NAMS_framework.png)
+
+
 ## Abstract
 RoomImpulse Response (RIR) prediction at arbitrary receiver positions is essential for practical applications such as spatial audio rendering. We propose Neural Acoustic Multipole Splatting (NAMS), which synthesizes RIRs at unseen receiver positions by learning the positions of neural acoustic multipoles and predicting their emitted signals and directivities using a neural network. Representing sound fields through a combination of multipoles offers sufficient flexibility to express complex acoustic scenes while adhering to physical constraints such as the Helmholtz equation. We also introduce a pruning strategy that starts from a dense splatting of neural acoustic multipoles and progressively eliminates redundant ones during training. Experiments conducted on both real and synthetic datasets indicate that the proposed method surpasses previous approaches on
 most metrics while maintaining rapid inference. Ablation studies reveal that multipole splatting with pruning achieves better performance than the monopole model with just 20% of the poles.
+
 
 ## Environment_setup
 This code was tested with the following environment:
@@ -46,18 +53,12 @@ python nams_runner.py --config ./config_files/meshrir.yml
 
 
 ## Visualizations
-Dataset
-![Figure Description](assets/Apartment566_dataset.png)
 
-Trained multipoles
+| Dataset | Trained multipoles | Directivities |
+|:---:|:---:|:---:|
+| ![Figure Description](assets/Apartment566_dataset.png) | ![Figure Description](assets/Apartment566_multipoles.gif) | ![Figure Description](assets/Apartment566_directivity.gif) |
 
-- Darker colors indicate higher emitted signal energy from each multipole.
-![Figure Description](assets/Apartment566_multipoles.gif.mp4)
-
-Directivities
-![Figure Description](assets/Apartment566_directivity.mp4)
-
-
+- Trained multipoles: darker colors indicate higher emitted signal energy from each multipole.
 ## Citation
 
 @inproceedings{baek2026neural,
