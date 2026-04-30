@@ -11,7 +11,7 @@ This code was tested with the following environment:
 
 We recommend using a separate conda environment.
 
-### Installation
+### Setup
 
 ```bash
 conda create -n nams_env python=3.10 -y
