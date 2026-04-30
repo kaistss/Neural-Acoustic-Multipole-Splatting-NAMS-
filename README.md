@@ -1,12 +1,21 @@
-# 1. Create environment
+## Environment Setup
+
+This code was tested with the following environment:
+
+- Ubuntu Linux
+- Python 3.10
+- PyTorch 2.7.1
+- CUDA 12.6
+- NVIDIA GPU
+- tiny-cuda-nn
+
+We recommend using a separate conda environment.
+
+### Installation
+
+```bash
 conda create -n nams_env python=3.10 -y
 conda activate nams_env
 
-# 2. Install PyTorch
 pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu126
-
-# 3. Install dependencies
 pip install -r requirements.txt
-
-# If tiny-cuda-nn installation fails, install it manually:
-pip install git+https://github.com/NVlabs/tiny-cuda-nn/@d9e5274da3630ff747b67ed6188c838f4ad671ef#subdirectory=bindings/torch
