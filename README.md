@@ -6,7 +6,7 @@ This code was tested with the following environment:
 - Python 3.10
 - PyTorch 2.7.1
 - CUDA 12.6
-- NVIDIA GPU
+- NVIDIA GPU, A6000
 - tiny-cuda-nn
 
 We recommend using a separate conda environment.
