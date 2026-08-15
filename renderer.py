@@ -64,10 +64,10 @@ class NAMS_renderer(nn.Module):
         r = torch.norm(dirs, dim=-1).unsqueeze(-1) # [B, N, 1]
         dirs_norm = dirs / (dirs.norm(dim=-1).unsqueeze(-1) + EPS) # [B, N, 3]
 
-        network_mps = normalize_points(position_mps, self.xyz_min, self.xyz_max) # [B, N, 3]
+        network_mps  =  normalize_points(position_mps, self.xyz_min, self.xyz_max) # [B, N, 3]
         network_dirs =  normalize_points(dirs, self.dirs_min, self.dirs_max) # [B, N, 3]
 
-        s_t, sh = self.network_fn(network_mps, network_dirs) # [B, N, N, L]
+        s_t, sh = self.network_fn(network_mps, network_dirs) # [B, N, M, L]
 
         s_t_padded = torch.zeros(s_t.size(0), s_t.size(1), int(self.ir_length*1.5*self.fs), device=s_t.device)
         s_t_padded[:, :, :s_t.size(-1)] = s_t.float() # [B, N, 1.5T]

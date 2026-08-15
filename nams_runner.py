@@ -74,7 +74,7 @@ class NAMS_Runner():
         self.ir_length = kwargs_render['ir_length']
         self.fs = kwargs_render['fs']
         self.train_set = WaveLoader(base_folder=self.dataset_dir, dataset_type=self.dataset_type, eval=False, seq_len=int(self.ir_length*self.fs), fs=self.fs)
-        self.test_set = WaveLoader(base_folder=self.dataset_dir, dataset_type=self.dataset_type, eval=True, seq_len=int(self.ir_length*self.fs), fs=self.fs)
+        self.test_set  = WaveLoader(base_folder=self.dataset_dir, dataset_type=self.dataset_type, eval=True, seq_len=int(self.ir_length*self.fs), fs=self.fs)
     
         self.train_loader = DataLoader(self.train_set, batch_size=self.batch_size, shuffle=True, num_workers=4)
         self.test_loader = DataLoader(self.test_set, batch_size=self.batch_size, shuffle=False, num_workers=4)
@@ -365,7 +365,7 @@ class NAMS_Runner():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', type=str, default='config.yml', help='config file path')
+    parser.add_argument('--config', type=str, default='/home/leejs/NAMS/config_files/pyroomacoustics.yml', help='config file path')
     args = parser.parse_args()
 
     with open(args.config, 'r') as file:

@@ -47,6 +47,22 @@ def logging_loss(total_loss, spec_loss, amplitude_loss, angle_loss, time_loss, e
     }
     return losses
 
+def logging_loss_4c(total_loss, spec_loss, amplitude_loss, angle_loss, time_loss, energy_loss, multi_stft_loss, momentum_loss, continuity_loss, data_loss, phy_loss):
+    losses = {
+        'total_loss': total_loss,
+        'spec_loss' : spec_loss,
+        'amplitude_loss': amplitude_loss,
+        'angle_loss': angle_loss,
+        'time_loss' : time_loss,
+        'energy_loss': energy_loss,
+        'multi_stft_loss': multi_stft_loss,
+        'momentum_loss'  : momentum_loss,
+        'continuity_loss': continuity_loss,
+        'data_loss'      : data_loss,
+        'physical_loss'  : phy_loss
+    }
+    return losses
+
 
 if __name__ == '__main__':
     logger = logging.getLogger('avr')

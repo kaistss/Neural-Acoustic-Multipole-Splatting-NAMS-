@@ -1,0 +1,87 @@
+
+### Path settings
+path:
+  dataset_type: Pyroomacoustics
+  dataset_dir: /home/leejs/HARP/Generated_HOA_IRs(azimuth_fixed)/
+  logdir: logs/pyr_multichannel_500_amang/ 
+  
+  
+### rendering settings 
+render:
+  xyz_min: -40 # multipoels spread [-34, -34, 34] to [34, 34, 34] to generate 100 ms RIR
+  xyz_max:  40
+  dirs_min: -80 # normalize for relative position of multipoles and receivers
+  dirs_max: 80
+  speed: 343
+  fs: 8000
+  ir_length: 0.1 # 0.1 second RIR length
+  prune_threshold: 0.1 # signal energy threshold (global median 50%)
+  init_sphere_radius_interval: 1 # init multipoles, sampling sphere
+  init_sphere_points_per_shell: 32 # init multipoles, #multipoles per shpere
+  xyz_trainable: True # trainable position of multipoles
+
+### training settings
+train:
+  # batch size
+  batch_size: 32  # batch size
+
+  # epochs
+  epochs: 1001
+  val_epochs: 5 # validation results every N epochs   1
+  save_epochs: 300 # save checkpoints
+  prune_epochs: 10 # prune multipoles every 10 epochs
+  prune_start_epoch: 100 # start pruning after 100 epochs
+
+  # optimizer
+  lr: 1e-3
+  lr_prior: 1e-2
+  T_max: 100
+  eta_min: 1e-4
+  weight_decay: 0
+
+  # loss weight 
+  spec_loss_weight: 1
+  amplitude_loss_weight: 0.5
+  angle_loss_weight: 0.5
+  time_loss_weight: 100
+  energy_loss_weight: 5
+  multistft_loss_weight: 1
+  init_eps_data: 2
+  init_eps_prior: 20
+
+  # PDE collocation points per iteration.
+  # evaluate_field() runs on a single GPU (DataParallel only splits forward()) and needs the
+  # double-backward graph, which costs ~0.3 GiB per point at 1089 multipoles / 601 freq bins.
+  # Measured on a 24 GiB RTX 3090: 32 -> 9.6 GiB, 64 -> 19.2 GiB, 128 -> OOM.
+  n_collocation: 32
+
+### model settings  
+model: 
+  signal_output_dim: 24 # 3 ms length
+  sh_output_dim: 384  
+  sh_mode: 16 # number of channels for SH coefficients
+  sh_coeff_length: 24   # 3 ms length
+
+  leaky_relu: 0.03
+
+  pos_encoding_sigma:
+    otype: Frequency
+    n_frequencies: 10   
+
+  dir_encoding_sig:
+    otype: Frequency
+    n_frequencies: 10   
+
+  signal_network:
+    activation: ReLU
+    n_hidden_layers: 3
+    n_neurons: 512
+    otype: CutlassMLP
+    output_activation: None
+
+  sh_network:
+    activation: ReLU
+    n_hidden_layers: 3
+    n_neurons: 512
+    otype: CutlassMLP
+    output_activation: None

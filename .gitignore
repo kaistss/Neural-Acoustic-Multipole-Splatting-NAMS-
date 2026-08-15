@@ -1,0 +1,21 @@
+# Object file
+*.o
+
+# Ada Library Information
+*.ali
+
+# Python
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.ckpt
+*.egg-info/
+.env
+.idea/
+ckpt/
+*.h5
+*.npy
+*.wav
+logs/
+tensorboard_logs/
