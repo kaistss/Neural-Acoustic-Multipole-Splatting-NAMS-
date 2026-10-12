@@ -58,6 +58,13 @@ python nams_runner.py --config ./config_files/meshrir.yml
 |:---:|:---:|:---:|
 | ![Figure Description](assets/Apartment566_dataset.png) | ![Figure Description](assets/Apartment566_multipoles.gif) | ![Figure Description](assets/Apartment566_directivity_low_quality.gif) |
 
+## Experiments Related to MeshRIR
+In the NAMS paper, the experiments were conducted using a speed of sound of 343 m/s. Using the speed of sound (c) calculated from the temperature reported in the MeshRIR paper yielded no meaningful difference in performance.
+| c (m/s)| Amp. | Env. (%) | T60 (%) | C50 (db) | EDT (ms) |
+|---:|---:|---:|---:|---:|---:|
+| 343.0 | 0.11 | 1.21 | 2.0 | 0.34 | 9.8 |
+| 346.9 | 0.11 | 1.20 | 2.0 | 0.33 | 9.9 |
+
 
 ## Citation
 
