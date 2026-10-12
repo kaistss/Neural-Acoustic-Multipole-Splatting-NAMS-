@@ -12,7 +12,7 @@ render:
   xyz_max:  40
   dirs_min: -80 # normalize for relative position of multipoles and receivers
   dirs_max: 80 
-  speed: 343 # In this work, the experiments were conducted with the speed of sound set to 343 m/s. Using the speed of sound computed from the tempertaure reported in the MeshRIR paper led to improved performance.
+  speed: 343 # In this work, the experiments were conducted with the speed of sound set to 343 m/s. Using the speed of sound computed from the tempertaure reported in the MeshRIR paper yielded no difference in performance. 
   fs: 24000
   ir_length: 0.1 # 0.1 second RIR length
   prune_threshold: 0.5 # signal energy threshold (global median 50%)
